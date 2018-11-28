@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
+from django.core.exceptions import ImproperlyConfigured
+
 
 def get_env_variable(var_name):
     try:
@@ -20,13 +22,18 @@ def get_env_variable(var_name):
         error_msg = 'Set the {} environment variable'.format(var_name)
         raise ImproperlyConfigured(error_msg)
 
-try:
-    from .settings_secret import *
-except ImportError:
-    SECRET_KEY = get_env_variable('SECRET_KEY')
-    LINE_CHANNEL_ACCESS_TOKEN = get_env_variable('LINE_CHANNEL_ACCESS_TOKEN')
-    LINE_CHANNEL_SECRET = get_env_variable('LINE_CHANNEL_SECRET')
+# try:
+#     from .settings_secret import *
+# except ImportError:
+#     SECRET_KEY = get_env_variable('SECRET_KEY')
+#     LINE_CHANNEL_ACCESS_TOKEN = get_env_variable('LINE_CHANNEL_ACCESS_TOKEN')
+#     LINE_CHANNEL_SECRET = get_env_variable('LINE_CHANNEL_SECRET')
 
+
+SECRET_KEY = 'e#(@b27-oo6ri01m42$=v909-_vd@n1b_%l6_=6zmf%-ct0#fr'
+LINE_CHANNEL_ACCESS_TOKEN = '2VXSpAI8f7LNeOUHd6CQIhd4VWb5+4HuKCbemQ+lCii8nWXxJj3Ut18BFZrLH8eEAswPRDr0XGFi1fgxN85uoMlgDYNtXlIEEwZLPCb1VIssH1TgnWLpbp1j1xmXj2+hRnPTDHxw6xcJ4ALgoSrVlY9PbdgDzCFqoOLOYbqAITQ='
+LINE_CHANNEL_SECRET = 'e0d48123e1534a05fcaf9fd197ec7d0c'
+LINE_CHANNEL_ID = '1553786882'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
