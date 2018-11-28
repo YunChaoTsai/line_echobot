@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
-from linebot.models import MessageEvent, TextMessage, TextSendMessage
+from linebot.models import MessageEvent, TextMessage, TextSendMessage, StickerMessage
 
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
@@ -25,12 +25,20 @@ def callback(request):
 
         for event in events:
             if isinstance(event, MessageEvent):
-                if isinstance(event.message, TextMessage):
+                if isinstance(event.message, StickerMessage):
+                    print(event.message)
+                    messages = []
+                    package_id = event.message.package_id
+                    sticker_id = event.message.sticker_id
+                    sticker = StickerMessage(package_id=package_id, sticker_id=sticker_id)
+                    messages.append(sticker)
+                    text = TextMessage(text='Hi我是詹姆士')
+                    messages.append(text)
                     line_bot_api.reply_message(
                         event.reply_token,
-                        TextSendMessage(text=event.message.text)
+                        messages
                     )
 
-        return HttpResponse()
+        return HttpResponse(status=200)
     else:
         return HttpResponseBadRequest()

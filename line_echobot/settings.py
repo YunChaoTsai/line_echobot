@@ -31,9 +31,9 @@ def get_env_variable(var_name):
 
 
 SECRET_KEY = 'e#(@b27-oo6ri01m42$=v909-_vd@n1b_%l6_=6zmf%-ct0#fr'
-LINE_CHANNEL_ACCESS_TOKEN = '2VXSpAI8f7LNeOUHd6CQIhd4VWb5+4HuKCbemQ+lCii8nWXxJj3Ut18BFZrLH8eEAswPRDr0XGFi1fgxN85uoMlgDYNtXlIEEwZLPCb1VIssH1TgnWLpbp1j1xmXj2+hRnPTDHxw6xcJ4ALgoSrVlY9PbdgDzCFqoOLOYbqAITQ='
-LINE_CHANNEL_SECRET = 'e0d48123e1534a05fcaf9fd197ec7d0c'
-LINE_CHANNEL_ID = '1553786882'
+LINE_CHANNEL_ACCESS_TOKEN = '4sn09DUb1RRsNETuzpV+CcJ51ZZ59a1E8uTv81yOHB4mNtTkZ0jtAXrwgFoJ0b3S41yGNsXlTQ49U3JUqklHiP7byf2FXtTr+A+hh4/MFAPr98NZrfxvB7sLBwNc69ENQi5Op9fhwnsi9I1kvcV7ZwdB04t89/1O/w1cDnyilFU='
+LINE_CHANNEL_SECRET = '2869b9105e84be15b73bb3de474dd825'
+LINE_CHANNEL_ID = '1625707073'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -46,7 +46,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
