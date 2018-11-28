@@ -26,7 +26,6 @@ def callback(request):
         for event in events:
             if isinstance(event, MessageEvent):
                 if isinstance(event.message, StickerMessage):
-                    print(event.message)
                     messages = []
                     package_id = event.message.package_id
                     sticker_id = event.message.sticker_id
@@ -34,10 +33,13 @@ def callback(request):
                     messages.append(sticker)
                     text = TextMessage(text='Hi我是詹姆士')
                     messages.append(text)
-                    line_bot_api.reply_message(
-                        event.reply_token,
-                        messages
-                    )
+                    try:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            messages
+                        )
+                    except:
+                        print('fail to reply')
 
         return HttpResponse(status=200)
     else:
